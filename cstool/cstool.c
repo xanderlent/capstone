@@ -80,7 +80,9 @@ static struct {
 	{ "ebpf", CS_ARCH_BPF, CS_MODE_LITTLE_ENDIAN | CS_MODE_BPF_EXTENDED },
 	{ "ebpfbe", CS_ARCH_BPF, CS_MODE_BIG_ENDIAN | CS_MODE_BPF_EXTENDED },
 	{ "riscv32", CS_ARCH_RISCV, CS_MODE_RISCV32 },
+	{ "riscv32c", CS_ARCH_RISCV, CS_MODE_RISCV32 | CS_MODE_RISCVC },
 	{ "riscv64", CS_ARCH_RISCV, CS_MODE_RISCV64 },
+	{ "riscv64c", CS_ARCH_RISCV, CS_MODE_RISCV64 | CS_MODE_RISCVC },
 	{ "6502", CS_ARCH_MOS65XX, CS_MODE_MOS65XX_6502 },
 	{ "65c02", CS_ARCH_MOS65XX, CS_MODE_MOS65XX_65C02 },
 	{ "w65c02", CS_ARCH_MOS65XX, CS_MODE_MOS65XX_W65C02 },
@@ -270,8 +272,10 @@ static void usage(char *prog)
 	}
 
 	if (cs_support(CS_ARCH_RISCV)) {
-		printf("        riscv32     riscv32\n");
-		printf("        riscv64     riscv64\n");
+		printf("        riscv32     RV32G\n");
+		printf("        riscv32c    RV32GC\n");
+		printf("        riscv64     RV64G\n");
+		printf("        riscv64c    RV64GC\n");
 	}
 
 	printf("\nExtra options:\n");
